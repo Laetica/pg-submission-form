@@ -1,0 +1,303 @@
+//====== Reponsive Hidden / Show Class ======
+// Hidden class
+// Hidden element on define breakpoint, show it on other
+// ex: hidden-xs (hide in XS show on other)
+//
+// Use --inline / --inline-block modifier to make element display in inline / inline-block when visible (instead of block)
+// ========================
+
+.hidden-sm,
+.hidden-md,
+.hidden-lg,
+.hidden-xl {
+    display: block;
+}
+
+.hidden-sm--inline-block,
+.hidden-md--inline-block,
+.hidden-lg--inline-block,
+.hidden-xl--inline-block {
+    display: inline-block;
+}
+
+.hidden-sm--inline,
+.hidden-md--inline,
+.hidden-lg--inline,
+.hidden-xl--inline {
+    display: inline;
+}
+
+// XS
+.hidden-xs,
+.hidden-xs--inline,
+.hidden-xs--inline-block {
+    display: none;
+}
+
+.hidden-xs {
+    @include breakpoint($sm) {
+        display: block;
+    }
+}
+
+.hidden-xs--inline {
+    @include breakpoint($sm) {
+        display: inline;
+    }
+}
+
+.hidden-xs--inline-block {
+    @include breakpoint($sm) {
+        display: inline-block;
+    }
+}
+
+// SM
+.hidden-sm,
+.hidden-sm--inline,
+.hidden-sm--inline-block {
+    @include breakpoint($sm) {
+        display: none;
+    }
+}
+
+.hidden-sm {
+    @include breakpoint($md) {
+        display: block;
+    }
+}
+
+.hidden-sm--inline {
+    @include breakpoint($md) {
+        display: inline;
+    }
+}
+
+.hidden-sm--inline-block {
+    @include breakpoint($md) {
+        display: inline-block;
+    }
+}
+
+// MD
+.hidden-md,
+.hidden-md--inline,
+.hidden-md--inline-block {
+    @include breakpoint($md) {
+        display: none;
+    }
+}
+
+.hidden-md {
+    @include breakpoint($lg) {
+        display: block;
+    }
+}
+
+.hidden-md--inline {
+    @include breakpoint($lg) {
+        display: inline;
+    }
+}
+
+.hidden-md--inline-block {
+    @include breakpoint($lg) {
+        display: inline-block;
+    }
+}
+
+// LG
+.hidden-lg {
+    @include breakpoint($xl) {
+        display: block;
+    }
+}
+
+.hidden-lg,
+.hidden-lg--inline,
+.hidden-lg--inline-block {
+    @include breakpoint($lg) {
+        display: none;
+    }
+}
+
+.hidden-lg--inline {
+    @include breakpoint($xl) {
+        display: inline;
+    }
+}
+
+.hidden-lg--inline-block {
+    @include breakpoint($xl) {
+        display: inline-block;
+    }
+}
+
+// XL
+.hidden-xl,
+.hidden-xl--inline,
+.hidden-xl--inline-block {
+    @include breakpoint($xl) {
+        display: none;
+    }
+}
+
+// Visible class
+// Element visible on define breakpoint, hide it on other
+// ex: visible-xs (show in XS hide on other)
+//
+// Use --inline / --inline-block modifier to make element display in inline / inline-block when visible (instead of block)
+
+// XS
+.visible-xs {
+    display: block;
+}
+
+.visible-xs--inline {
+    display: inline;
+}
+
+.visible-xs--inline-block {
+    display: inline-block;
+}
+
+.visible-xs,
+.visible-xs--inline,
+.visible-xs--inline-block {
+    @include breakpoint($sm) {
+        display: none;
+    }
+}
+
+// SM
+.visible-sm {
+    @include breakpoint($sm) {
+        display: block;
+    }
+}
+
+.visible-sm--inline {
+    @include breakpoint($sm) {
+        display: inline;
+    }
+}
+
+.visible-sm--inline-block {
+    @include breakpoint($sm) {
+        display: inline-block;
+    }
+}
+
+.visible-sm,
+.visible-sm--inline,
+.visible-sm--inline-block {
+    @include breakpoint($md) {
+        display: none;
+    }
+}
+
+// MD
+.visible-md {
+    @include breakpoint($md) {
+        display: block;
+    }
+}
+
+.visible-md--inline {
+    @include breakpoint($md) {
+        display: inline;
+    }
+}
+
+.visible-md--inline-block {
+    @include breakpoint($md) {
+        display: inline-block;
+    }
+}
+
+.visible-md,
+.visible-md--inline,
+.visible-md--inline-block {
+    @include breakpoint($lg) {
+        display: none;
+    }
+}
+
+// LG
+.visible-lg {
+    @include breakpoint($lg) {
+        display: block;
+    }
+}
+
+.visible-lg--inline {
+    @include breakpoint($lg) {
+        display: inline-block;
+    }
+}
+
+.visible-lg--inline-block {
+    @include breakpoint($lg) {
+        display: inline-block;
+    }
+}
+
+.visible-lg,
+.visible-lg--inline,
+.visible-lg--inline-block {
+    @include breakpoint($xl) {
+        display: none;
+    }
+}
+
+// XL
+.visible-xl {
+    @include breakpoint($xl) {
+        display: block;
+    }
+}
+
+.visible-xl--inline {
+    @include breakpoint($xl) {
+        display: inline;
+    }
+}
+
+.visible-xl--inline-block {
+    @include breakpoint($xl) {
+        display: inline-block;
+    }
+}
+
+//====== hidden ======
+
+.hidden {
+    display: none;
+}
+
+//====== visible ======
+
+.visible {
+    display: block;
+}
+
+.invisible {
+    visibility: hidden;
+    transform: scale(0);
+    opacity: 0;
+}
+
+//====== Screen Reader Only ======
+// Copied from bootstrap3 (https://stackoverflow.com/questions/19758598/what-is-sr-only-in-bootstrap-3)
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+    user-select: none;
+}

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#004c93">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#004c93">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#004c93">
+
+    <!-- Favicon -->
+    <!--<link rel="shortcut icon" type="image/x-icon" href="../ResourcePackages/ProjectName/assets/images/favicon.ico">-->
+      <link rel="apple-touch-icon" sizes="180x180" href="../resources/assets/dist/images/apple-touch-icon.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="../resources/assets/dist/images/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="../resources/assets/dist/images/favicon-16x16.png">
+      <meta name="msapplication-TileColor" content="#da532c">
+      <meta name="theme-color" content="#ffffff">
+
+    <title>Publicis Groupe - Submission form</title>
+    <meta name="description" content="">
+
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+    <!--<style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap');
+    </style>-->
+
+    <link rel="stylesheet" href="../resources/assets/dist/css/main.min.css">
+
+  </head>
+
+  <body class="home">
+
+
+    <!-- HEADER -->
+    <header class="header">
+
+        <div class="row align-middle align-justify column medium-align-left">
+            <div class="logo-container">
+                <img src="../resources/assets/dist/images/logo-pg.svg" alt="Logo Publicis Groupe">
+            </div>
+
+            <div class="sublogo-container">
+                <img src="../resources/assets/dist/images/epsilon-logo.jpg" alt="Logo Epsilon">
+            </div>
+        </div>
+
+    </header>
+    <!-- END HEADER -->
+
+
+    <!-- MAIN CONTENT -->
+    <main>
+      <div class="row align-center">
+        <div class="column small-12 medium-10 large-9">
+
+          <section class="intro">
+            <h1>Submission form</h1>
+          </section>
+
+          <section class="contact-form">
+            <form action="#">
+              <fieldset>
+                  <div class="form-title row align-bottom">
+                      <div class="column small-12 medium-shrink medium-order-2">
+                          <p class="date text-left medium-text-right">10th December</p>
+                      </div>
+
+                      <div class="column small-12 medium-expand medium-order-1">
+                        <h2>LAUNCH EPSILON BENELUX:<br/> READY FOR A COOKIE-FREE FUTURE</h2>
+                      </div>
+                  </div>
+                 <div class="field-container">
+                    <label>
+                        <span class="label-field">First name *</span>
+                        <input type="text" name="firstname" js-field-validation required value="">
+                    </label>
+                 </div>
+
+                  <div class="field-container error">
+                    <label>
+                        <span class="label-field">Surname *</span>
+                        <input type="text" name="surname" js-field-validation required value="">
+                    </label>
+                      <span class="error-msg">Error msg</span>
+                  </div>
+
+                  <div class="field-container">
+                      <label>
+                          <span class="label-field">Company *</span>
+                          <input type="text" name="company" required js-field-validation value="">
+                      </label>
+                  </div>
+
+                  <div class="field-container">
+                      <label>
+                          <span class="label-field">Function *</span>
+                          <input type="text" name="function" required js-field-validation value="">
+                      </label>
+                  </div>
+
+                  <div class="field-container">
+                    <label>
+                        <span class="label-field">E-mail *</span>
+                        <input type="email" name="email" required js-field-validation value="">
+                    </label>
+                  </div>
+
+                  <div class="radio-container error"> <!-- 2 HTML FOR THE ERROR MSG OF RADIOS : ONE DISPLAYED ON MOBILE, ONE DISPLAYED ON TABLET & DESKTOP.  -->
+                    <legend>
+                        My partner agency is *
+                        <span class="error-msg show-for-medium">Error msg</span> <!-- ERROR VISIBLE ON TABLET & DESKTOP -->
+                    </legend>
+
+                    <div>
+                        <label>
+                            <input type="radio" name="partner-agency" value="pg-be" required>
+                            <i class="custom-radio"></i>
+                            <span class="label-radio">Publicis Groupe Belgium</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="partner-agency" value="pg-nl" required>
+                            <i class="custom-radio"></i>
+                            <span class="label-radio">Publicis Groupe Nederland</span>
+                        </label>
+                    </div>
+                    <span class="error-msg show-for-small-only">Error msg</span> <!-- ERROR VISIBLE ON MOBILE ONLY -->
+                  </div>
+              </fieldset>
+
+              <input type="submit" disabled class="button submit" value="Envoyer">
+
+            </form>
+          </section>
+        </div>
+      </div>
+    </main>
+    <!-- END MAIN CONTENT -->
+
+    <!-- Custom JS -->
+    <script type="text/javascript" src="../resources/assets/dist/js/libraries.min.js"></script>
+    <script type="text/javascript" src="../resources/assets/dist/js/main.min.js?v=1.0"></script>
+  </body>
+</html>

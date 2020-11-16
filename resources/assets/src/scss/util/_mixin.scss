@@ -1,0 +1,247 @@
+//====== MIXIN ======
+// All mixin use in multiple components.
+//=======================
+
+//====== Breakpoints mixin ======
+// https://gist.github.com/timknight/b8adb5df5600c37fd567#file-breakpoint-v2-scss
+// Article: https://medium.com/developing-with-sass/refactoring-my-simple-sass-breakpoint-mixin-71205dd6badd
+// Use ex: @include breakpoint($md);
+
+$xsh: (min:  $screen-xsh-min);
+$sm:  (min:  $screen-sm-min);
+$md:  (min:  $screen-md-min);
+$lg:  (min:  $screen-lg-min);
+$xl:  (min:  $screen-xl-min);
+$xs-only: (max:  $screen-xs-max);
+$sm-only: (min: map-get($sm, min), max: map-get($md, min) - 1);
+$md-only: (min: map-get($md, min), max: map-get($lg, min) - 1);
+$lg-only: (min: map-get($lg, min), max: map-get($xl, min) - 1);
+
+$below-sm: (max:  $screen-sm-min - 1);
+$below-md: (max:  $screen-md-min - 1);
+$below-lg: (max:  $screen-lg-min - 1);
+
+$sm-portrait:  (min:  $screen-sm-min, orientation: portrait);
+$sm-landscape:  (min:  $screen-sm-min, orientation: landscape);
+
+
+@mixin breakpoint($map) {
+    $query: '';
+    @if map-has-key($map, min) {
+        $query: append($query, '(min-width: #{map-get($map, min)})');
+    }
+    @if map-has-key($map, min) and map-has-key($map, max) {
+        $query: append($query, 'and');
+    }
+    @if map-has-key($map, min) and map-has-key($map, orientation){
+        $query: append($query, 'and');
+        $query: append($query, '(orientation: #{map-get($map, orientation)})');
+    }
+    @if map-has-key($map, max) {
+        $query: append($query, '(max-width: #{map-get($map, max)})');
+    }
+
+    @media screen and #{$query} {
+        @content;
+    }
+}
+
+//====== Ultimate rem mixin by Hugo Giraudel ======
+// http://hugogiraudel.com/2013/03/18/ultimate-rem-mixin
+// Using parseInt function (see util/_function.scss)
+@mixin rem($property, $values) {
+    $px : ();
+    $rem: ();
+
+    @each $value in $values {
+
+        @if $value == 0 or $value == auto {
+            $px : append($px , $value);
+            $rem: append($rem, $value);
+        }
+        @else {
+            $unit: unit($value);
+            $val: parse-int($value);
+
+            @if $unit == 'px' {
+                $px : append($px, $value);
+                $rem: append($rem, ($val / 10 + rem));
+            }
+
+            @if $unit == 'rem' {
+                $px : append($px, ($val * 10 + px));
+                $rem: append($rem, $value);
+            }
+        }
+    }
+
+    @if $px == $rem {
+        #{$property}: $px;
+    }
+    @else {
+        #{$property}: $px;
+        #{$property}: $rem;
+    }
+}
+
+//====== Clearfix ======
+// For modern browsers
+// 1. The space content is one way to avoid an Opera bug when the
+//    contenteditable attribute is included anywhere else in the document.
+//    Otherwise it causes space to appear at the top and bottom of elements
+//    that are clearfixed.
+// 2. The use of `table` rather than `block` is only necessary if using
+//    `:before` to contain the top-margins of child elements.
+//
+// Source: http://nicolasgallagher.com/micro-clearfix-hack/
+
+@mixin clearfix() {
+    &:before,
+    &:after {
+        content: ''; // 1
+        display: table; // 2
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+
+//====== background-image ======
+// https://gist.github.com/frederickpweiss/9712225
+//
+// Include background image in svg (if browser support them) with a fallback on png(and x2) for browser that doesn't support svg
+//
+// use ex: @include background-image("image-name")
+$image-path: '../images' !default;
+$fallback-extension: 'png' !default;
+$retina-suffix: '@2x';
+@mixin background-image($name, $size:false) {
+    background-image: url(#{$image-path}/#{$name}.svg);
+    @if($size){
+        background-size: $size;
+    }
+
+    .no-svg & {
+        background-image: url(#{$image-path}/#{$name}.#{$fallback-extension});
+
+        @media only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+            background-image: url(#{$image-path}/#{$name}#{$retina-suffix}.#{$fallback-extension});
+        }
+    }
+}
+
+// Size helper mixin
+// ---
+// @param [number] $width: width
+// @param [number] $height ($width): height
+// ---
+@mixin size($width, $height: $width) {
+    width: $width;
+    height: $height;
+}
+
+// [Private]
+// Position helper mixin
+// Article about it: http://hugogiraudel.com/2013/08/05/offsets-sass-mixin/
+// ---
+// @param [string] $position: position type
+// @param [list] $args: list of offsets and values
+// ---
+@mixin _position($position, $args) {
+    @each $o in top right bottom left {
+        $i: index($args, $o);
+        @if $i
+        and $i + 1 <= length($args)
+        and type-of(nth($args, $i + 1)) == number {
+          #{$o}: nth($args, $i + 1);
+        }
+    }
+    position: $position;
+}
+
+// Absolute positioning helper mixin
+// Article about it: http://hugogiraudel.com/2013/08/05/offsets-sass-mixin/
+// ---
+// @param [list] $args: list of offsets and values
+// ---
+@mixin absolute($args) {
+    @include _position(absolute, $args);
+}
+
+// Arrow helper mixin
+// ---
+// @param [string] $direction: arrow direction
+// @param [list] $position: list of offsets and values
+// @param [color] $color (inherit): arrow color
+// @param [number] $size (1em): arrow size
+// ---
+//
+// source http://www.sitepoint.com/sass-mixin-css-triangles/
+@mixin triangle($direction, $position, $color: currentColor, $size: 1em) {
+    // Make sure the direction is valid
+    @if not index(top right bottom left, $direction) {
+        @warn 'Direction must be one of top, right, bottom or left.';
+    }
+
+    @else {
+        @include absolute($position); // Position
+        @include size(0); // Size
+        content: '';
+        z-index: 2;
+
+        border-#{opposite-position($direction)}: $size * 1 solid $color;
+        $perpendicular-borders: $size solid transparent;
+
+        @if $direction == top or $direction == bottom {
+            border-left: $perpendicular-borders;
+            border-right: $perpendicular-borders;
+        }
+
+    @else if $direction == right or $direction == left {
+        border-bottom: $perpendicular-borders;
+        border-top: $perpendicular-borders;
+    }
+  }
+}
+
+//====== Alignement Mixins ======
+@mixin vertical-align($position: relative) {
+    position: $position;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@mixin horizontal-align($position: relative) {
+    position: $position;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@mixin center-align($position: relative) {
+    position: $position;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+//====== Placeholder mixins ======
+// These are mixins outputting css rules without being dynamic
+// (without accepting parameters).
+// This is useful for working with Sitefinity based components and
+// applying existing styles to them.
+
+//====== Icons ======
+@mixin website-icon() {
+    font-family: 'font-icon-family';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}

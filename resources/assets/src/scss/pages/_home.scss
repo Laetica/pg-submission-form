@@ -1,0 +1,61 @@
+//====== Homepage ======
+// Specific style for homepage
+
+.hero {
+  margin-bottom: 25px;
+}
+
+.intro {
+
+  h1 {
+    font-family: $regular;
+    font-weight: 800;
+    color: $lightColor;
+    font-size: 24px;
+    text-transform: uppercase;
+    line-height: 1.1;
+    position: relative;
+    margin-left: 30px;
+    margin-bottom: 14px;
+    margin-top: 40px;
+    z-index: 3;
+    @include breakpoint(medium) {
+      font-size: 30px;
+      margin-top: 60px;
+      margin-left: 70px;
+    }
+    @include breakpoint(large) {
+      font-size: 40px;
+      margin-top: 100px;
+      margin-left: 100px;
+    }
+
+    &:before {
+      content: "";
+      display: block;
+      width: 50px;
+      height: 70px;
+      background: url('../images/pattern.svg') no-repeat left top;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      @include transform(translate(-50%, -50%));
+      z-index: -1;
+      @include breakpoint(medium) {
+        width: 60px;
+        height: 80px;
+      }
+
+      @include breakpoint(large) {
+        width: 90px;
+        height: 120px;
+      }
+    }
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 18px;
+    font-family: "Helvetica", "Arial", sans-serif;
+  }
+}

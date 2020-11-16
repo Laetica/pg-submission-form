@@ -1,0 +1,58 @@
+//====== Project reset ======
+// Ideally, it should only target HTML tags directly (no class or ID).
+//=======================
+
+* {
+    &,
+    &:before,
+    &:after {
+        box-sizing: border-box;
+    }
+}
+
+html {
+    font-size: 16px;
+    font-family: "Arial";
+    font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    -webkit-appearance: none;
+    appearance: none;
+    padding: 0;
+    cursor: pointer;
+    background: 0 0;
+    border: 0;
+}

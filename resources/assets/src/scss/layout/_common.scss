@@ -1,0 +1,189 @@
+.hidden {
+  display: none;
+}
+
+.relative {
+  position: relative;
+}
+
+.highlight {
+  color: $altColor;
+  font-style: normal;
+}
+
+.no-margin {
+  margin: 0 !important;
+}
+
+img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+button.button, .button {
+  background-color: $altColor;
+  font-family: $regular;
+  font-weight: 800;
+  color: $lightColor;
+  display: block;
+  font-size: 16px;
+  padding: 12px 50px;
+  margin: 0 auto 10px auto;
+  border: 1px solid $altColor;
+  &:hover {
+    background-color: $mainColor;
+    color: $altColor;
+    text-decoration: none;
+    border-color: $altColor;
+  }
+
+  &.alt {
+    background-color: $altColor;
+    color: $lightColor;
+    &:hover {
+      background-color: $textColor;
+    }
+  }
+
+  &.reversed {
+    background-color: $lightColor;
+    color: $textColor;
+    border: 2px solid $mainColor;
+    &:hover {
+      background-color: $mainColor;
+      border-color: $mainColor;
+      color: $textColor;
+    }
+  }
+
+  &.submit {
+    @include transform(translateY(-50%));
+    @include breakpoint(medium) {
+      margin-right: 50px;
+    }
+    @include breakpoint(large) {
+      margin-right: 70px;
+    }
+    &[disabled] {
+      background-color: #F6F6F6;
+      color: lighten($mainColor, 80%);
+      border-color: #F6F6F6;
+      opacity: 1;
+    }
+  }
+}
+
+.link {
+  text-decoration: underline;
+  font-family: $bold;
+  font-size: 10px;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.error {
+  input[type="text"],
+  input[type="email"],
+  input[type="number"] {
+    border-color: $errorColor;
+  }
+}
+
+.error-msg {
+  color: $errorColor;
+  font-size: 12px;
+  line-height: 12px;
+  display: block;
+}
+
+strong {
+  font-family: $bold;
+}
+
+.hidden {
+  display: none;
+}
+
+.relative {
+  position: relative;
+}
+
+.highlight {
+  color: $altColor;
+  font-style: normal;
+}
+
+.light-bg {
+  background: $lightColor;
+}
+
+.no-margin {
+  margin: 0 !important;
+}
+
+.small-size {
+  font-size: 11px;
+  @include breakpoint(medium) {
+    font-size: 12px;
+  }
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: $regular;
+}
+
+
+h2, .h2 {
+  font-size: 30px;
+  font-family: $bold;
+  margin-bottom: 20px;
+  @include breakpoint(large) {
+    font-size: 45px;
+    margin-bottom: 35px;
+  }
+}
+
+strong {
+  font-family: $bold;
+}
+
+img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+small {
+  font-size: 20px;
+  @include breakpoint(large) {
+    font-size: 25px;
+  }
+}
+
+
+.light-text {
+  color: $lightColor;
+}
+
+.medium-shrink {
+  @include breakpoint(medium only) {
+    flex: 0 0 auto;
+    max-width: 100%;
+  }
+}
+
+.large-shrink {
+  @include breakpoint(large only) {
+    flex: 0 0 auto;
+    max-width: 100%;
+  }
+}
+
+
+.no-padding-right {
+  padding-right: 0;
+}
+
+

@@ -1,0 +1,13 @@
+//====== Helpers ======
+// Various class reusable everywhere that can help
+//=======================
+
+// Clearfix
+.clearfix {
+    @include clearfix;
+}
+
+// No scroll-x
+.no-scroll-x {
+    overflow-x: hidden;
+}

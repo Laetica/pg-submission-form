@@ -1,0 +1,50 @@
+//====== Styling guidelines ======
+
+// These .scss have been lint using the .scss-lint.yml (/scss/.scss-lint.yml) linter rules
+
+// - Never use ID in selectors
+// - Never (unless impossible)
+//   use unqualified tags in selectors
+
+//====== Vendor ======
+// External libraries use in the project
+// ex: Bootstrap, Normalize, etc
+
+
+
+//====== Util ======
+// Various tools use everywhere in the project which are not directly link
+// to a component/page element
+// ex: Variables, mixin, etc
+
+@import 'util/variable';
+
+@import 'libraries/libraries';
+
+//====== Base ======
+// Various block/element which are use everywhere on the project (not depending on component/page)
+// ex: Fonts, Transition, etc
+
+@import 'base/reset';
+@import 'base/base';
+@import 'base/font';
+@import 'base/icon';
+
+//====== Layout ======
+// Global layout rules, generally link to a template
+// ex: Header, Footer, Nav, etc
+
+@import 'layout/layout';
+@import 'layout/header';
+@import 'layout/footer';
+@import 'layout/common';
+
+//====== Component ======
+// Stand alone component that can be used everywhere in the project (not dependent on a specific page)
+// ex: Card, Blockquote, etc
+
+@import 'component/form';
+
+//=========Pages =======
+
+@import 'pages/home';

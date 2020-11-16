@@ -1,0 +1,47 @@
+//====== Icons ======
+// Define all icons
+//========================
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-facebook:before {
+  content: "\e900";
+  color: #fff;
+}
+.icon-instagram:before {
+  content: "\e901";
+  color: #fff;
+}
+.icon-pinterest:before {
+  content: "\e902";
+  color: #fff;
+}
+.icon-twitter:before {
+  content: "\e903";
+  color: #fff;
+}
+.icon-youtube:before {
+  content: "\e905";
+  color: #fff;
+}
+.icon-error:before {
+  content: "\e904";
+  color: #ee451d;
+}
+.icon-validated:before {
+  content: "\e907";
+  color: #fff;
+}

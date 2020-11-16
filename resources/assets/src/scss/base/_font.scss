@@ -1,0 +1,35 @@
+//====== FONTS ======
+// All funca&tions you use in multiple components.
+// Note that a specific function for a specific component should be include
+// into his own file.
+//=======================
+
+
+/*@font-face {
+     font-family: "FORsmartNext-Regular";
+     src: url('../fonts/FORsmartNext-Regular.eot');
+     src: url('../fonts/FORsmartNext-Regular.eot?#iefix') format('embedded-opentype'), url('../fonts/FORsmartNext-Regular.woff') format('woff'), url('../fonts/FORsmartNext-Regular.ttf') format('truetype'), url('../fonts/FORsmartNext-Regular.svg#BNPPSansRegular') format('svg');
+     font-weight: 400;
+     font-style: normal;
+}
+
+@font-face {
+  font-family: "FORsmartNext-Bold";
+  src: url('../fonts/FORsmartNext-Bold.eot');
+  src: url('../fonts/FORsmartNext-Bold.eot?#iefix') format('embedded-opentype'), url('../fonts/FORsmartNext-Bold.woff') format('woff'), url('../fonts/FORsmartNext-Bold.ttf') format('truetype'), url('../fonts/FORsmartNext-Bold.svg#BNPPSansRegular') format('svg');
+  font-weight: 400;
+  font-style: normal;
+}*/
+
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?t1gd0t');
+  src:  url('../fonts/icomoon.eot?t1gd0t#iefix') format('embedded-opentype'),
+  url('../fonts/icomoon.ttf?t1gd0t') format('truetype'),
+  url('../fonts/icomoon.woff?t1gd0t') format('woff'),
+  url('../fonts/icomoon.svg?t1gd0t#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}

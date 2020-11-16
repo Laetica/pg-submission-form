@@ -1,0 +1,50 @@
+//====== FUNCTIONS ======
+// All functions you use in multiple components.
+// Note that a specific function for a specific component should be include
+// into his own file.
+//=======================
+
+//====== Parse-int ======
+// Used by rem mixin (see util/_mixin.scss for more info)
+@function parse-int($n) { /* 2 */
+    @return $n / ($n * 0 + 1);
+}
+
+//====== z ======
+// http://sassmeister.com/gist/11172138
+// http://www.sitepoint.com/better-solution-managing-z-index-sass/
+// A way to group all z-index values in one place
+// ---
+// @param [string] $component: the layer to use
+// ---
+// @return [number] | [null]
+
+@function z($layer) {
+    @if not map-has-key($z-layers, $layer) {
+        @warn 'No z-index found in $z-layers map for `#{$layer}`. Property omitted.';
+    }
+
+    @return map-get($z-layers, $layer);
+}
+
+//====== Opposite-position ======
+// Return opposite position of a direction
+// Used by triangle mixin
+// Inspired by compass http://compass-style.org/reference/compass/helpers/constants/#opposite-position
+@function opposite-position($position) {
+    @if $position == 'top' {
+        @return 'bottom';
+    }
+    @else if $position == 'right'{
+        @return 'left';
+    }
+    @else if $position == 'bottom'{
+        @return 'top';
+    }
+    @else if $position == 'left'{
+        @return 'right';
+    }
+    @else {
+        @warn 'Direction must be one of top, right, bottom or left.';
+    }
+}

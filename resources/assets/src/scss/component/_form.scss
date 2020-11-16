@@ -1,0 +1,520 @@
+form {
+  margin-bottom: 30px;
+  @include breakpoint(large) {
+    margin-bottom: 66px;
+  }
+
+  .form-title {
+    margin-bottom: 20px;
+    @include breakpoint(medium) {
+      margin-bottom: 30px;
+    }
+  }
+
+  h2 {
+    font-size: 16px;
+    margin-bottom: 0;
+    font-weight: 800;
+    font-family: $regular;
+    text-transform: uppercase;
+    color: $lightColor;
+  }
+
+  label {
+    position: relative;
+  }
+
+  .field-container {
+    margin-bottom: 15px;
+    label {
+      @include breakpoint(medium) {
+        display: flex;
+        align-items: center;
+        > span {
+          min-width: 20%;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  p {
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: $altColor;
+    margin-bottom: 0;
+  }
+
+  fieldset {
+    background-color: $lightColor;
+    margin-bottom: 0;
+    padding: 40px 30px 30px 30px;
+    @include breakpoint(medium) {
+      padding: 40px 50px 30px 70px;
+    }
+
+    @include breakpoint(large) {
+      padding: 50px 70px 40px 100px;
+    }
+  }
+
+  input[type="text"],
+  input[type="number"],
+  input[type="email"] {
+    font-family: $regular;
+    @include transition(background-color .2s ease-in-out);
+    border: 1px solid $mainColor;
+    box-shadow: none;
+    background: transparent;
+    color: $textColor;
+    padding: 2px 10% 2px 10px;
+    font-size: 14px;
+    height: auto;
+    margin-bottom: 0;
+
+    &:focus {
+      box-shadow: none;
+      background-color: transparent;
+      border-width: 1px;
+      border-color: $mainColor;
+    }
+  }
+
+  &.focus-on-dropdown {
+    input[type="text"],
+    input[type="number"],
+    input[type="email"],
+    input[type="checkbox"] + .icon-icon-validated {
+      @include breakpoint(large down) {
+        background-color: rgba(255, 255, 255, .5);
+      }
+    }
+  }
+
+  select {
+    width: 100%;
+  }
+
+  .selectric-hover {
+    .selectric {
+      border-color: $textColor;
+      .button {
+        color: transparent;
+      }
+    }
+  }
+
+  .selectric {
+    background-color: $lightColor;
+    border: none;
+    border-bottom: 1pw solid #A8A8A8;
+    .label {
+      height: 40px;
+      line-height: 40px;
+      color: #A8A8A8;
+      font-family: $regular;
+      font-size: 16px;
+      margin: 0 38px 0 15px;
+      @include breakpoint(large) {
+        margin: 0 58px 0 25px;
+      }
+    }
+
+    .button {
+      border: 0;
+      background: transparent;
+      color: transparent;
+      padding: 0;
+      position: absolute;
+      @include transform(translateY(-50%));
+      top: 50%;
+      right: 15px;
+      font-family: "Helvetica", "Arial", sans-serif;
+      text-transform: none;
+      margin-bottom: 0;
+      width: 12px;
+      height: 6px;
+
+      &:before {
+        content: "";
+        display: block;
+        color: #A8A8A8;
+        border: 6px solid transparent;
+        border-color: $mainColor transparent transparent transparent
+      }
+
+      @include breakpoint(large) {
+        right: 25px;
+        font-size: 14px;
+      }
+
+      &:after {
+        display: none;
+      }
+    }
+  }
+
+  .selectric-open {
+    .selectric {
+      border-color: $mainColor;
+    }
+
+    .button {
+      @include transform(translateY(-50%) rotate(-180deg));
+    }
+  }
+
+  .selectric-items {
+    width: 100% !important;
+    background-color: $lightColor;
+    li {
+      border-bottom: 1px solid #A8A8A8;
+      line-height: 29px;
+      color: #A8A8A8;
+      &:hover {
+        background-color: $mainColor;
+        color: $altColor;
+      }
+
+      &.selected, &.highlighted {
+        background-color: $mainColor;
+        color: $textColor;
+      }
+    }
+
+    .mCSB_scrollTools {
+      width: 5px;
+      right: 5px;
+      top: 5px;
+      bottom: 5px;
+
+      .mCSB_draggerContainer {
+        overflow: hidden;
+        @include border-radius(20px);
+        -webkit-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.25);
+        -moz-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.25);
+        box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.25);
+      }
+
+      .mCSB_draggerRail {
+        width: auto;
+        background-color: $lightColor;
+
+      }
+
+      .mCSB_dragger {
+        background-color: darken($altColor, 10%);
+        @include border-radius(20px);
+        .mCSB_dragger_bar {
+          background-color: darken($altColor, 10%);
+        }
+      }
+    }
+    .mCSB_inside {
+      > .mCSB_container {
+        margin-right: 0;
+      }
+    }
+  }
+
+
+  .error {
+    input[type="text"],
+    input[type="email"],
+    input[type="number"] {
+      border-color: $errorColor;
+      color: $errorColor;
+      &:focus {
+        border-color: $errorColor;
+      }
+    }
+
+    &.field-container {
+      margin-bottom: 5px;
+      label {
+        &:before {
+          top: auto;
+          bottom: 5px;
+          @include transform(translateY(0));
+        }
+      }
+    }
+
+    .checkbox-container {
+      padding-right: 35px;
+    }
+
+    label {
+      &:before {
+        font-family: 'icomoon' !important;
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+
+        /* Better Font Rendering =========== */
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        content: "\e904";
+        color: $errorColor;
+        position: absolute;
+        right: 10px;
+        @include breakpoint(medium) {
+          @include transform(translateY(-50%));
+          top: 50%;
+        }
+      }
+    }
+
+    .label-text {
+      right: 30px;
+      @include breakpoint(large) {
+        right: 40px;
+      }
+    }
+
+    &.radio-container {
+
+      label {
+        margin-bottom: 0;
+        @include breakpoint(medium) {
+          margin-bottom: 12px;
+        }
+        &:before {
+          display: none;
+        }
+      }
+
+      legend {
+        position: relative;
+        width: 100%;
+        @include breakpoint(medium) {
+          width: 38%;
+        }
+        &:after {
+          font-family: 'icomoon' !important;
+          speak: none;
+          font-style: normal;
+          font-weight: normal;
+          font-variant: normal;
+          text-transform: none;
+          line-height: 1;
+
+          /* Better Font Rendering =========== */
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          content: "\e904";
+          color: $errorColor;
+          display: block;
+          right: 10px;
+          top: 4px;
+          font-size: 14px;
+          width: 14px;
+          height: 14px;
+          position: absolute;
+          @include breakpoint(medium) {
+            display: none;
+          }
+        }
+
+      }
+
+      div {
+        position: relative;
+        @include breakpoint(medium) {
+          &:after {
+            font-family: 'icomoon' !important;
+            speak: none;
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+            text-transform: none;
+            line-height: 1;
+
+            /* Better Font Rendering =========== */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            content: "\e904";
+            color: $errorColor;
+            display: block;
+            right: 10px;
+            top: 4px;
+            font-size: 14px;
+            width: 14px;
+            height: 14px;
+            position: absolute;
+          }
+        }
+      }
+    }
+  }
+
+
+
+  .error-msg {
+    font-family: "Helvetica", "Arial", sans-serif;
+    font-size: 12px;
+    background-color: transparent;
+    color: $errorColor;
+    line-height: 12px;
+    margin-top: 5px;
+    padding: 5px 5px 5px 0;
+    display: block;
+  }
+
+
+
+  .radio-container {
+
+    @include breakpoint(medium) {
+      display: flex;
+    }
+    legend {
+      font-size: 14px;
+      color: $mainColor;
+      font-family: $regular;
+      margin-bottom: 10px;
+      @include breakpoint(medium) {
+        width: 186px;
+      }
+
+      @include breakpoint(large) {
+        width: 34%;
+      }
+    }
+
+    > div {
+      @include breakpoint(medium) {
+        width: 80%;
+      }
+    }
+
+    label {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding-left: 25px;
+      margin-right: 20px;
+      position: relative;
+      cursor: pointer;
+      @include breakpoint(medium) {
+        display: block;
+      }
+    }
+
+    input[type='radio'] {
+      opacity: 0;
+      position: absolute;
+      &:checked {
+        + i {
+          &:before {
+            @include transform(translate(-50%, -50%) scale(1));
+          }
+        }
+      }
+    }
+
+    .custom-radio {
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      @include transform(translateY(-50%));
+      border: 1px solid #A8A8A8;
+      &:before {
+        content: "";
+        display: block;
+        width: 12px;
+        height: 12px;
+        background-color: $altColor;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        @include transform(translate(-50%, -50%) scale(0));
+        @include transition(all .2s linear);
+      }
+    }
+  }
+
+
+  //custom checkbox style
+  .checkbox-container {
+    label {
+      padding-left: 45px;
+      position: relative;
+      cursor: pointer;
+      line-height: normal;
+      min-height: 30px;
+    }
+  }
+
+  .label-checkbox {
+    color: $lightColor;
+  }
+
+  input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+
+    + .icon-validated {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      margin-right: 5px;
+      width: 30px;
+      height: 30px;
+      border: 1px solid #A8A8A8;
+      background-color: $lightColor;
+      @include transition(background-color .3s ease-in-out);
+      &:before {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        @include transition(transform .3s ease-in-out);
+        @include transform(translate(-50%, -50%) scale(0));
+      }
+    }
+
+    &:checked {
+      + .icon-validated {
+        background-color: $mainColor;
+        &:before {
+          display: block;
+          @include transform(translate(-50%, -50%) scale(1));
+        }
+      }
+    }
+  }
+}
+
+.subs-question {
+  padding-right: 45px !important;
+}
+
+input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #A8A8A8;
+  opacity: 1; /* Firefox */
+}
+
+input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #A8A8A8;
+}
+
+input::-ms-input-placeholder { /* Microsoft Edge */
+  color: #A8A8A8;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
