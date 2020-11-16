@@ -290,10 +290,6 @@ form {
 
       legend {
         position: relative;
-        width: 100%;
-        @include breakpoint(medium) {
-          width: 38%;
-        }
         &:after {
           font-family: 'icomoon' !important;
           speak: none;
@@ -377,6 +373,7 @@ form {
       color: $mainColor;
       font-family: $regular;
       margin-bottom: 10px;
+      width: 100%;
       @include breakpoint(medium) {
         width: 186px;
       }
