@@ -9,6 +9,14 @@ form {
     @include breakpoint(medium) {
       margin-bottom: 30px;
     }
+
+    p {
+      font-size: 16px;
+      text-transform: uppercase;
+      font-weight: 800;
+      color: $altColor;
+      margin-bottom: 0;
+    }
   }
 
   h2 {
@@ -17,7 +25,7 @@ form {
     font-weight: 800;
     font-family: $regular;
     text-transform: uppercase;
-    color: $lightColor;
+    color: $mainColor;
   }
 
   label {
@@ -31,7 +39,7 @@ form {
         display: flex;
         align-items: center;
         > span {
-          min-width: 20%;
+          min-width: 24%;
           font-size: 14px;
         }
       }
@@ -39,11 +47,13 @@ form {
   }
 
   p {
-    font-size: 16px;
-    text-transform: uppercase;
-    font-weight: 800;
-    color: $altColor;
-    margin-bottom: 0;
+    font-size: 12px;
+    a {
+      color: $altColor;
+      &:hover {
+        color: $altColor;
+      }
+    }
   }
 
   fieldset {
