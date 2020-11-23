@@ -27,11 +27,20 @@ var validationFunc = function() {
 
 
     var isAllValid = function() {
-        if (isInputValid && isRadioValid) {
-            submitButton.removeAttr('disabled')
+        if (!radios.length) {
+            if (isInputValid) {
+                submitButton.removeAttr('disabled');
+            } else {
+                submitButton.attr('disabled', 'disabled');
+            }
         } else {
-            submitButton.attr('disabled', 'disabled');
+            if (isInputValid && isRadioValid) {
+                submitButton.removeAttr('disabled');
+            } else {
+                submitButton.attr('disabled', 'disabled');
+            }
         }
+
     }
 };
 
